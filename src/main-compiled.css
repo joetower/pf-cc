@@ -31,6 +31,7 @@
     --radius-sm: 0.25rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-pf-orange: hsl(33, 100%, 50%);
   }
 }
 @layer base {
@@ -239,9 +240,6 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
-  .text-amber-500 {
-    color: var(--color-amber-500);
-  }
   .text-gray-500 {
     color: var(--color-gray-500);
   }
@@ -275,7 +273,7 @@ body {
   line-height: 1;
 }
 a {
-  color: #fd7a01;
+  color: var(--color-pf-orange);
   text-decoration: none;
   transition: color .3s ease;
 }
@@ -309,7 +307,7 @@ h2 {
   line-height: var(--tw-leading, var(--text-2xl--line-height));
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
-  color: var(--color-amber-500);
+  color: var(--color-pf-orange);
   text-transform: uppercase;
 }
 h3 {
@@ -317,26 +315,63 @@ h3 {
   line-height: var(--tw-leading, var(--text-xl--line-height));
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
-  color: var(--color-amber-500);
+  color: var(--color-pf-orange);
   text-transform: uppercase;
 }
 .blog__site__header {
   display: flex;
   align-items: center;
   border-top-style: var(--tw-border-style);
-  border-top-width: 4px;
-  border-color: var(--color-amber-500);
+  border-top-width: 6px;
+  border-color: var(--color-pf-orange);
   padding-top: calc(var(--spacing) * 4);
-  font-size: var(--text-3xl);
-  line-height: var(--tw-leading, var(--text-3xl--line-height));
-  --tw-font-weight: var(--font-weight-bold);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-stone-600);
 }
 .blog__logo__link {
   margin-inline: auto;
   display: block;
   max-width: 133px;
+}
+.blog__challenge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 0.25rem solid var(--color-pf-orange);
+  &[aria-expanded="true"] {
+    background-color: black;
+    color: white;
+  }
+}
+.blog__challenge__tasks {
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+  padding: 2rem;
+  max-width: 30rem;
+  margin: 0 auto;
+  border: 0.25rem solid gray;
+}
+.blog__challenge__tasks[aria-hidden="true"] {
+  display: none;
+}
+.blog__challenge__tasklist {
+  margin-left: 1rem;
+}
+.blog__challenge__tasklist li {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.blog__challenge__tasklist li::marker {
+  content: "✓";
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: green;
+}
+.blog__challenge__tasklist li + li {
+  margin-top: 0.75rem;
 }
 .blog__intro {
   font-size: var(--text-lg);
@@ -367,6 +402,10 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: calc(var(--spacing) * 4);
+}
+.blog__body a {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
 }
 .blog__category__header {
   font-family: 'Oswald Variable', sans-serif;
@@ -407,7 +446,7 @@ h3 {
 }
 .blog__site__footer {
   border-top-style: var(--tw-border-style);
-  border-top-width: 4px;
+  border-top-width: 6px;
   border-color: var(--color-amber-500);
   padding-inline: calc(var(--spacing) * 8);
   padding-top: calc(var(--spacing) * 4);

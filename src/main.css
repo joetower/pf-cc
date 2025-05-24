@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme  {
+  --color-pf-orange: hsl(33, 100%, 50%);
+}
+
 /* Supports weights 200-700 */
 /* oswald-latin-wght-normal */
 @font-face {
@@ -30,7 +34,7 @@ body {
 
 /* Links */
 a {
-  color: #fd7a01;
+  color: var(--color-pf-orange);
   text-decoration: none;
   transition: color .3s ease;
 }
@@ -59,21 +63,73 @@ h1 {
 }
 
 h2 {
-  @apply text-2xl font-bold text-amber-500 uppercase;
+  @apply text-2xl font-bold text-pf-orange uppercase;
 } 
 
 h3 {
-  @apply text-xl font-bold text-amber-500 uppercase;
+  @apply text-xl font-bold text-pf-orange uppercase;
 
 }
 
 .blog__site__header {
-  @apply text-3xl font-bold text-stone-600 border-t-4 border-amber-500 pt-4 flex items-center;
+  @apply border-t-6 border-pf-orange pt-4 flex items-center;
 }
 
 .blog__logo__link {
   @apply mx-auto max-w-[133px] block;
 }
+
+.blog__challenge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 0.25rem solid var(--color-pf-orange);
+
+  &[aria-expanded="true"] {
+    background-color: black;
+    color: white;
+  }
+
+}
+
+.blog__challenge__tasks {
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+  padding: 2rem;
+  max-width: 30rem;
+  margin: 0 auto;
+  border: 0.25rem solid gray;
+}
+
+.blog__challenge__tasks[aria-hidden="true"] {
+  display: none;
+}
+
+.blog__challenge__tasklist {
+  margin-left: 1rem;
+}
+
+.blog__challenge__tasklist li {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.blog__challenge__tasklist li::marker {
+  content: "✓";
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: green;
+}
+
+.blog__challenge__tasklist li + li {
+  margin-top: 0.75rem;
+}
+
 
 .blog__intro {
   @apply text-lg font-medium text-stone-600 italic;
@@ -90,6 +146,10 @@ h3 {
 
 .blog__body {
   @apply my-4 flex flex-col gap-4;
+}
+
+.blog__body a {
+  @apply underline decoration-2;
 }
 
 .blog__category__header {
@@ -134,7 +194,7 @@ h3 {
 }
 
 .blog__site__footer {
-  @apply px-8 border-amber-500 border-t-4 pt-4;
+  @apply px-8 border-amber-500 border-t-6 pt-4;
 }
 
 @keyframes fadeInUp {

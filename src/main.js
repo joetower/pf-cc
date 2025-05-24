@@ -43,3 +43,34 @@ function observeImage(image) {
 }
 
 document.querySelectorAll('img').forEach(observeImage);
+
+
+// Header tasks button
+const tasksButton = document.querySelector('.blog__challenge');
+const tasksList = document.querySelector('.blog__challenge__tasks');
+
+console.log(tasksButton);
+
+// when you click the tasksButton the tasksList will reveal
+tasksButton.addEventListener('click', function() {
+  // Add logic to reveal the tasksList here
+  if (tasksButton.getAttribute('aria-expanded') === "false") {
+    tasksButton.setAttribute('aria-expanded', "true");
+    tasksList.setAttribute('aria-hidden', false);
+  } else {
+    tasksButton.setAttribute('aria-expanded', false);
+    tasksList.setAttribute('aria-hidden', true);
+  }
+});
+
+// Close tasksList when Escape key is pressed
+document.addEventListener('keydown', function(e) {
+  if (
+    e.key === 'Escape' &&
+    tasksButton.getAttribute('aria-expanded') === "true"
+  ) {
+    tasksButton.setAttribute('aria-expanded', false);
+    tasksList.setAttribute('aria-hidden', true);
+    tasksButton.focus();
+  }
+});
