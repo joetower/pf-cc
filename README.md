@@ -12,3 +12,4 @@
 - The toggle button state is communicated to screen readers via the `aria-label` attribute.
 - All links have a `:focus-visible` CSS declaration to improve accessibility and discoverability for keyboard-navigating users.
 - Both `open sans` and `oswald` are being served via https://cdn.jsdelivr.net/fontsource. Both use the variable type version of the typeface, making weights easy to adjust on the fly and making the font more performant.
+- Fonts are using a `clamp` function to adjust their sizes, responsively, in an accessible way.

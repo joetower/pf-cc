@@ -316,8 +316,11 @@ h3 {
 }
 .blog__site__header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding-top: calc(var(--spacing) * 4);
+  @media (width >= 64rem) {
+    align-items: center;
+  }
 }
 .blog__logo__link {
   margin-inline: auto;
@@ -351,6 +354,10 @@ h3 {
     width: 1.4rem;
     height: 1.4rem;
   }
+  @media (max-width: 700px) {
+    position: relative;
+    padding: 0.25rem 1rem;
+  }
 }
 .blog__challenge__tasks {
   position: absolute;
@@ -374,7 +381,7 @@ h3 {
   margin-left: 1rem;
 }
 .blog__challenge__tasklist li {
-  font-size: var(--site-global--font-size--label);
+  font-size: var(--site-global--font-size--base);
   font-weight: 600;
   line-height: 1;
 }
@@ -408,7 +415,7 @@ h3 {
   margin-block: calc(var(--spacing) * 8);
   max-width: 660px;
   @media (width < 700px) {
-    padding-inline: calc(var(--spacing) * 8);
+    padding-inline: calc(var(--spacing) * 6);
   }
 }
 .blog__body {
