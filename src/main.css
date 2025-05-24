@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  /* Defines a pulse-short animation that repeats 5 times in 1 second
+     original pulse animation with an ease-in-out timing function. */
+  --animate-pulse-short: pulse 400ms ease-in-out 1;
+}
+
+/* Supports weights 200-700 */
+/* oswald-latin-wght-normal */
+@font-face {
+  font-family: 'Oswald Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 700;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/oswald:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* open-sans-latin-wght-normal */
+@font-face {
+  font-family: 'Open Sans Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 800;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/open-sans:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+body {
+  font-family: "Open Sans Variable",helvetica,arial,sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+/* Links */
+a {
+  color: #fd7a01;
+  text-decoration: none;
+  transition: color .3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+} 
+
+a:focus-visible {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
+/* Typography */
+p {
+  @apply text-lg/8 font-normal text-stone-600;
+}
+
+p + p {
+  @apply mt-4;
+}
+
+h2 {
+  @apply text-2xl font-bold text-amber-500 uppercase;
+} 
+
+h3 {
+  @apply text-xl font-bold text-amber-500 uppercase;
+
+}
+
+h1.blog__title {
+  @apply text-3xl font-bold uppercase text-stone-600;
+}
+
+.blog__intro {
+  @apply text-lg font-medium text-stone-600 italic;
+}
+
+.blog__byline {
+  @apply text-base font-medium text-stone-600 italic;
+}
+
+/* Blog bits */
+.blog__full {
+  @apply max-w-xl my-8 max-[600px]:px-8 mx-auto;
+}
+
+.blog__body {
+  @apply my-4 flex flex-col gap-4;
+}
+
+.blog__category__header {
+  font-family: 'Oswald Variable', sans-serif;
+}
+
+/* create utility classes to avoid updating selectors in the future */
+.blog__body .image-container {
+  @apply my-6;
+}
+
+.image-container {
+  @apply flex justify-center;
+  
+  position: relative;
+}
+
+.image-container img {
+  @apply rounded-sm;
+}
+
+.image-container.loading::before {
+  @apply bg-amber-500;
+  
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+} 
+
+.image-container.loaded img {
+  @apply motion-safe:animate-pulse-short duration-300 ;
+}
+
+.dotSeparator {
+  @apply mx-auto my-6;
+
+  background-image: url("https://pheasantsforever.org/getmedia/1e210bc0-2906-47af-be9d-785da275eb35/divider-threeDots.aspx");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 2rem;
+  width: 4rem;
+}

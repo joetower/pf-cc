@@ -1,0 +1,1 @@
+{"scripts":{"dev":"npx @tailwindcss/cli -i ./src/main.css -o ./src/main-compiled.css --watch","build":"npx @tailwindcss/cli -i ./src/main.css -o ./src/main-compiled.css"},"dependencies":{"@fontsource-variable/oswald":"^5.2.5","@tailwindcss/cli":"^4.1.7","tailwindcss":"^4.1.7"}}
