@@ -317,15 +317,21 @@ h3 {
 .blog__site__header {
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   padding-top: calc(var(--spacing) * 4);
   @media (width >= 64rem) {
     align-items: center;
   }
 }
 .blog__logo__link {
-  margin-inline: auto;
   display: block;
   max-width: 133px;
+  flex-shrink: 1;
+  flex-grow: 0;
+  flex-basis: auto;
+  @media (width >= 600px) {
+    margin-inline: auto;
+  }
 }
 .blog__challenge {
   display: flex;
@@ -357,6 +363,13 @@ h3 {
   @media (max-width: 700px) {
     position: relative;
     padding: 0.25rem 1rem;
+    font-weight: 600;
+    border-width: 0.15rem;
+    gap: 0.5rem;
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
   }
 }
 .blog__challenge__tasks {

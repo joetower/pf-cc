@@ -1,6 +1,7 @@
 /* Tailwind import and settings */
 @import "tailwindcss";
 
+/* add css variable in tailwind */
 @theme  {
   --color-pf-orange: hsl(33, 100%, 50%);
 }
@@ -101,11 +102,11 @@ h3 {
 }
 
 .blog__site__header {
-  @apply pt-4 flex items-start lg:items-center;
+  @apply pt-4 flex items-start justify-between lg:items-center;
 }
 
 .blog__logo__link {
-  @apply mx-auto max-w-[133px] block;
+  @apply min-[600px]:mx-auto max-w-[133px] block grow-0 shrink-1 basis-auto;
 }
 
 .blog__challenge {
@@ -143,6 +144,14 @@ h3 {
   @media (max-width: 700px) {
     position: relative;
     padding: 0.25rem 1rem;
+    font-weight: 600;
+    border-width: 0.15rem;
+    gap: 0.5rem;
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
   }
 }
 
