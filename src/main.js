@@ -1,52 +1,40 @@
-function setImageAttributes(image) {
-  image.classList.add('loading');
-  image.dataset.src = image.src;
-  image.setAttribute('width', image.naturalWidth || image.width);
-  image.setAttribute('height', image.naturalHeight || image.height);
-  // image.src = ''; // Avoid clearing src to prevent broken icon
-  image.loading = 'lazy'; // Native lazy loading
+// Select all elements with [data-animate-item] attribute
+const elementsToAnimate = document.querySelectorAll(
+  '.image-container img'
+);
+
+// Check if the user prefers reduced motion
+const prefersReducedMotionNoPref = window.matchMedia(
+  '(prefers-reduced-motion: no-preference)'
+).matches;
+
+// Create a new Intersection Observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const animatedElement = entry.target;
+    animatedElement.setAttribute('width', animatedElement.naturalWidth || animatedElement.width);
+    animatedElement.setAttribute('height', animatedElement.naturalHeight || animatedElement.height);
+    animatedElement.loading = 'lazy'; // Native lazy loading
+
+    if (entry.isIntersecting) {
+      // If the element is in the viewport, add the 'animate' class
+      setTimeout(() => {
+        animatedElement.setAttribute('component-is-animating', 'true');
+      }, 100 * (entries.indexOf(entry) + 1));
+    }
+  });
+}, {
+  threshold: 0.40 // Trigger when 40% of the element is visible
+});
+
+// Only add observer if siteAnimationEnabled, there are elements to animate,
+// and if user hasn't enabled reduced motion.
+if (elementsToAnimate && prefersReducedMotionNoPref) {
+  // Observe each .divider element
+  elementsToAnimate.forEach((animatedElement) => {
+    observer.observe(animatedElement);
+  });
 }
-
-function handleImageLoad(image, container, observer) {
-  image.classList.remove('loading');
-  image.classList.add('loaded');
-  if (container) {
-    container.classList.remove('loading');
-    container.classList.add('loaded');
-  }
-  observer.unobserve(image);
-  image.onload = null; // Clean up
-}
-
-function observeImage(image) {
-  const container = image.closest('.image-container');
-  if (container) container.classList.add('loading');
-  setImageAttributes(image);
-
-  if ('loading' in HTMLImageElement.prototype) {
-    // Native lazy loading supported
-    image.addEventListener('load', () => handleImageLoad(image, container, { unobserve: () => {} }));
-    return;
-  }
-
-  const options = {
-    threshold: 0.4,
-  };
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && image.dataset.src) {
-        image.src = image.dataset.src;
-        image.onload = () => handleImageLoad(image, container, obs);
-        obs.unobserve(image);
-      }
-    });
-  }, options);
-
-  observer.observe(image);
-}
-
-document.querySelectorAll('img').forEach(observeImage);
 
 
 // Header tasks button

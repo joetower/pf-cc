@@ -84,8 +84,8 @@ h3 {
   top: 1rem;
   right: 1rem;
   padding: 0.5rem 1.5rem;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 800;
   text-transform: uppercase;
   border: 0.25rem solid var(--color-pf-orange);
   cursor: pointer;
@@ -287,11 +287,11 @@ h3 {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-	.image-container img.loading {
+	.image-container img {
 		visibility: hidden; 
 	}
 
-	.image-container img.loaded {
+	.image-container img[component-is-animating="true"] {
 		animation: zoomIn 800ms ease-in-out;
 		animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
 		animation-fill-mode: forwards;
