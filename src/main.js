@@ -29,6 +29,12 @@ function observeImage(image) {
     return;
   }
 
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.6,
+  };
+
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting && image.dataset.src) {
@@ -37,7 +43,7 @@ function observeImage(image) {
         obs.unobserve(image);
       }
     });
-  }, { threshold: 0.4 });
+  }, options);
 
   observer.observe(image);
 }
@@ -49,7 +55,6 @@ document.querySelectorAll('img').forEach(observeImage);
 const tasksButton = document.querySelector('.blog__challenge');
 const tasksList = document.querySelector('.blog__challenge__tasks');
 
-console.log(tasksButton);
 
 // when you click the tasksButton the tasksList will reveal
 tasksButton.addEventListener('click', function() {

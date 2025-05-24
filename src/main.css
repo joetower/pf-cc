@@ -104,6 +104,13 @@ h3 {
   max-width: 30rem;
   margin: 0 auto;
   border: 0.25rem solid gray;
+  background-color: rgba(255,255,255,0.9);
+  z-index: 1;
+
+  @media (max-width: 550px) {
+    max-width: 100%;
+    left: 1rem;
+  }
 }
 
 .blog__challenge__tasks[aria-hidden="true"] {
@@ -168,7 +175,7 @@ h3 {
 }
 
 .image-container img {
-  @apply rounded-sm;
+  @apply rounded-sm border-pf-orange border-2;
 }
 
 .blog__separator {
@@ -190,7 +197,7 @@ h3 {
 
 
 .blog__footer__content {
-  @apply max-w-xl my-8 max-[600px]:px-8 mx-auto;
+  @apply max-w-[660px] my-8 max-[600px]:px-8 mx-auto;
 }
 
 .blog__site__footer {

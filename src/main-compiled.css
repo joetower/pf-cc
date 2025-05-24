@@ -12,7 +12,6 @@
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-stone-600: oklch(44.4% 0.011 73.639);
     --spacing: 0.25rem;
-    --container-xl: 36rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-base: 1rem;
@@ -353,6 +352,12 @@ h3 {
   max-width: 30rem;
   margin: 0 auto;
   border: 0.25rem solid gray;
+  background-color: rgba(255,255,255,0.9);
+  z-index: 1;
+  @media (max-width: 550px) {
+    max-width: 100%;
+    left: 1rem;
+  }
 }
 .blog__challenge__tasks[aria-hidden="true"] {
   display: none;
@@ -420,6 +425,9 @@ h3 {
 }
 .image-container img {
   border-radius: var(--radius-sm);
+  border-style: var(--tw-border-style);
+  border-width: 2px;
+  border-color: var(--color-pf-orange);
 }
 .blog__separator {
   margin-inline: auto;
@@ -439,7 +447,7 @@ h3 {
 .blog__footer__content {
   margin-inline: auto;
   margin-block: calc(var(--spacing) * 8);
-  max-width: var(--container-xl);
+  max-width: 660px;
   @media (width < 600px) {
     padding-inline: calc(var(--spacing) * 8);
   }
