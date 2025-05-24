@@ -33,7 +33,7 @@
 /* CSS Variables */
 :root {
   --site-global--font-size--base: clamp(0.95rem, calc(2vw + 1rem), 1.2rem);
-	--site-global--font-size--label: clamp(1rem, calc(2vw + 1rem), 1.35rem);
+	--site-global--font-size--intro: clamp(0.95rem, calc(2vw + 1rem), 1.35rem);
 	--site-global--font-size--large: clamp(1rem, calc(2vw + 1rem), 1.5rem);
 	--site-global--font-size--xlarge: clamp(1.2rem, calc(2vw + 1rem), 2rem);
 	--site-global--font-size--xxlarge: clamp(1.5rem, calc(2vw + 1rem), 4rem);
@@ -191,8 +191,12 @@ h3 {
 
 .blog__intro {
   @apply font-bold text-stone-600 italic;
-  font-size: var(--site-global--font-size--label);
+  font-size: var(--site-global--font-size--intro);
   line-height: 1.25;
+
+  @media (max-width: 550px) {
+    @apply font-medium;
+  }
 }
 
 .blog__byline {

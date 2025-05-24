@@ -1,10 +1,10 @@
 # pf-cc
 [View latest deploy](https://pf-cc.netlify.app/)
 
-## This project is a code challenge
+## This project is a PF code challenge
 **It uses:**
 - Tailwindcss (both using utility classes and the `@apply` function) along with vanilla CSS
-- Lazy-loaded images which animated in when they're in the user's viewport.
+- Lazy-loaded images which animate in when they're in the user's viewport.
 - All animation is disabled if a user has the `prefers-reduced-motion` computer OS setting enabled.
 - A JS-based toggle button to expand the list of this challenge's tasks.
 - A silly hover animation when you hover over the PF logo. It is linked to the live version of the post.
