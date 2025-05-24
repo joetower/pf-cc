@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-  /* Defines a pulse-short animation that repeats 5 times in 1 second
-     original pulse animation with an ease-in-out timing function. */
-  --animate-pulse-short: pulse 400ms ease-in-out 1;
-}
-
 /* Supports weights 200-700 */
 /* oswald-latin-wght-normal */
 @font-face {
@@ -29,10 +23,9 @@
 
 body {
   font-family: "Open Sans Variable",helvetica,arial,sans-serif;
-  font-size: 17px;
+  font-size: 1.2rem;
   font-weight: 400;
-  line-height: 1.7;
-  margin-bottom: 22px;
+  line-height: 1;
 }
 
 /* Links */
@@ -56,8 +49,13 @@ p {
   @apply text-lg/8 font-normal text-stone-600;
 }
 
-p + p {
+p + p,
+p + h3 {
   @apply mt-4;
+}
+
+h1 {
+  @apply text-3xl font-bold uppercase text-stone-600;
 }
 
 h2 {
@@ -69,8 +67,12 @@ h3 {
 
 }
 
-h1.blog__title {
-  @apply text-3xl font-bold uppercase text-stone-600;
+.blog__site__header {
+  @apply text-3xl font-bold text-stone-600 border-t-4 border-amber-500 pt-4 flex items-center;
+}
+
+.blog__logo__link {
+  @apply mx-auto max-w-[133px] block;
 }
 
 .blog__intro {
@@ -83,7 +85,7 @@ h1.blog__title {
 
 /* Blog bits */
 .blog__full {
-  @apply max-w-xl my-8 max-[600px]:px-8 mx-auto;
+  @apply max-w-[660px] my-8 max-[600px]:px-8 mx-auto;
 }
 
 .blog__body {
@@ -109,28 +111,123 @@ h1.blog__title {
   @apply rounded-sm;
 }
 
-.image-container.loading::before {
-  @apply bg-amber-500;
-  
-  content: "";
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-} 
-
-.image-container.loaded img {
-  @apply motion-safe:animate-pulse-short duration-300 ;
-}
-
-.dotSeparator {
+.blog__separator {
   @apply mx-auto my-6;
 
-  background-image: url("https://pheasantsforever.org/getmedia/1e210bc0-2906-47af-be9d-785da275eb35/divider-threeDots.aspx");
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 2rem;
-  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  .dot {
+    display: inline-block;
+    background-color: black;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+  }
+}
+
+
+.blog__footer__content {
+  @apply max-w-xl my-8 max-[600px]:px-8 mx-auto;
+}
+
+.blog__site__footer {
+  @apply px-8 border-amber-500 border-t-4 pt-4;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRight {
+	from {
+		opacity: 0;
+		-webkit-transform: translate3d(100%, 0, 0);
+		transform: translate3d(100%, 0, 0);
+	}
+
+	to {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes rubberBand {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.image-container img.loading {
+		visibility: hidden; 
+	}
+
+	.image-container img.loaded {
+		animation: zoomIn 800ms ease-in-out;
+		animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+		animation-fill-mode: forwards;
+		visibility: visible;
+	}
+
+  .blog__logo__link:hover {
+    animation: rubberBand 800ms ease-in-out;
+		animation-fill-mode: forwards;
+  }
 }

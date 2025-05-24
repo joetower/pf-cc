@@ -3,7 +3,8 @@ function setImageAttributes(image) {
   image.dataset.src = image.src;
   image.setAttribute('width', image.naturalWidth || image.width);
   image.setAttribute('height', image.naturalHeight || image.height);
-  image.src = ''; // Hide image until in viewport
+  // image.src = ''; // Avoid clearing src to prevent broken icon
+  image.loading = 'lazy'; // Native lazy loading
 }
 
 function handleImageLoad(image, container, observer) {
@@ -14,6 +15,7 @@ function handleImageLoad(image, container, observer) {
     container.classList.add('loaded');
   }
   observer.unobserve(image);
+  image.onload = null; // Clean up
 }
 
 function observeImage(image) {
@@ -21,14 +23,21 @@ function observeImage(image) {
   if (container) container.classList.add('loading');
   setImageAttributes(image);
 
+  if ('loading' in HTMLImageElement.prototype) {
+    // Native lazy loading supported
+    image.addEventListener('load', () => handleImageLoad(image, container, { unobserve: () => {} }));
+    return;
+  }
+
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && image.dataset.src) {
         image.src = image.dataset.src;
         image.onload = () => handleImageLoad(image, container, obs);
+        obs.unobserve(image);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.4 });
 
   observer.observe(image);
 }
