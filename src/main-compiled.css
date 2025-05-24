@@ -343,6 +343,9 @@ h3 {
     background-color: black;
     color: white;
   }
+  &:hover {
+    border-color: black;
+  }
 }
 .blog__challenge__tasks {
   position: absolute;

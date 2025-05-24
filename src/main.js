@@ -60,9 +60,11 @@ const tasksList = document.querySelector('.blog__challenge__tasks');
 tasksButton.addEventListener('click', function() {
   // Add logic to reveal the tasksList here
   if (tasksButton.getAttribute('aria-expanded') === "false") {
+    tasksButton.setAttribute('aria-label', 'Collapse the task list')
     tasksButton.setAttribute('aria-expanded', "true");
     tasksList.setAttribute('aria-hidden', false);
   } else {
+    tasksButton.setAttribute('aria-label', 'Expand the task list')
     tasksButton.setAttribute('aria-expanded', false);
     tasksList.setAttribute('aria-hidden', true);
   }

@@ -94,6 +94,10 @@ h3 {
     color: white;
   }
 
+  &:hover {
+    border-color: black;
+  }
+
 }
 
 .blog__challenge__tasks {
