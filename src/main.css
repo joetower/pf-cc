@@ -1,8 +1,13 @@
+/* Tailwind import and settings */
 @import "tailwindcss";
 
 @theme  {
   --color-pf-orange: hsl(33, 100%, 50%);
 }
+
+/*
+*** Typography
+**/
 
 /* Supports weights 200-700 */
 /* oswald-latin-wght-normal */
@@ -25,11 +30,27 @@
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
+/* CSS Variables */
+:root {
+  --site-global--font-size--base: clamp(0.95rem, calc(2vw + 1rem), 1.2rem);
+	--site-global--font-size--label: clamp(1rem, calc(2vw + 1rem), 1.35rem);
+	--site-global--font-size--large: clamp(1rem, calc(2vw + 1rem), 1.5rem);
+	--site-global--font-size--xlarge: clamp(1.2rem, calc(2vw + 1rem), 2rem);
+	--site-global--font-size--xxlarge: clamp(1.5rem, calc(2vw + 1rem), 4rem);
+  --site-global--font-size--h1: clamp(1.4rem, calc(2vw + 1rem), 1.75rem);
+	--site-global--font-size--h2: clamp(0.9rem, calc(2vw + 1rem), 1.5rem);
+	--site-global--font-size--h3: clamp(0.9rem, calc(2vw + 1rem), 1.25rem);
+  --site-global--font-size--h4: clamp(0.9rem, calc(2vw + 1rem), 1.25rem); 
+}
+
+
+/* Body */
 body {
+  @apply border-2 border-pf-orange lg:border-4;
   font-family: "Open Sans Variable",helvetica,arial,sans-serif;
-  font-size: 1.2rem;
+  font-size: var(--site-global--font-size--base);
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.7;
 }
 
 /* Links */
@@ -50,29 +71,37 @@ a:focus-visible {
 
 /* Typography */
 p {
-  @apply text-lg/8 font-normal text-stone-600;
+  @apply font-normal text-stone-600;
 }
 
-p + p,
+p + p:not(.blog__byline),
 p + h3 {
   @apply mt-4;
 }
 
+h1, h2, h3, h4 {
+  line-height: 1.2;
+}
+
 h1 {
-  @apply text-3xl font-bold uppercase text-stone-600;
+  @apply font-extrabold uppercase text-stone-600;
+  font-size: var(--site-global--font-size--h1);
+  line-height: 1.2;
 }
 
 h2 {
-  @apply text-2xl font-bold text-pf-orange uppercase;
+  @apply font-extrabold text-pf-orange uppercase;
+  font-size: var(--site-global--font-size--h2);
 } 
 
 h3 {
-  @apply text-xl font-bold text-pf-orange uppercase;
+  @apply font-extrabold text-pf-orange uppercase;
+  font-size: var(--site-global--font-size--h3);
 
 }
 
 .blog__site__header {
-  @apply border-t-6 border-pf-orange pt-4 flex items-center;
+  @apply pt-4 flex items-center;
 }
 
 .blog__logo__link {
@@ -80,12 +109,15 @@ h3 {
 }
 
 .blog__challenge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   position: absolute;
   top: 1rem;
   right: 1rem;
   padding: 0.5rem 1.5rem;
-  font-size: 1.1rem;
-  font-weight: 800;
+  font-size: var(--site-global--font-size--base);
+  font-weight: 700;
   text-transform: uppercase;
   border: 0.25rem solid var(--color-pf-orange);
   cursor: pointer;
@@ -93,22 +125,31 @@ h3 {
   &[aria-expanded="true"] {
     background-color: black;
     color: white;
+
+    svg {
+      fill: white;
+    }
   }
 
   &:hover {
     border-color: black;
   }
 
+  svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
 }
 
 .blog__challenge__tasks {
   position: absolute;
-  top: 4rem;
+  top: 5.5rem;
   right: 1rem;
   padding: 2rem;
   max-width: 30rem;
   margin: 0 auto;
-  border: 0.25rem solid gray;
+  border: 0.25rem solid var(--color-pf-orange);
   background-color: rgba(255,255,255,0.9);
   z-index: 1;
 
@@ -127,7 +168,8 @@ h3 {
 }
 
 .blog__challenge__tasklist li {
-  font-size: 1.4rem;
+  font-size: var(--site-global--font-size--label);
+  font-weight: 600;
   line-height: 1;
 }
 
@@ -144,7 +186,9 @@ h3 {
 
 
 .blog__intro {
-  @apply text-lg font-medium text-stone-600 italic;
+  @apply font-bold text-stone-600 italic;
+  font-size: var(--site-global--font-size--label);
+  line-height: 1.25;
 }
 
 .blog__byline {
@@ -153,7 +197,7 @@ h3 {
 
 /* Blog bits */
 .blog__full {
-  @apply max-w-[660px] my-8 max-[600px]:px-8 mx-auto;
+  @apply max-w-[660px] my-8 max-[700px]:px-8 mx-auto;
 }
 
 .blog__body {
@@ -202,11 +246,11 @@ h3 {
 
 
 .blog__footer__content {
-  @apply max-w-[660px] my-8 max-[600px]:px-8 mx-auto;
+  @apply max-w-[660px] mx-auto;
 }
 
 .blog__site__footer {
-  @apply px-8 border-amber-500 border-t-6 pt-4;
+  @apply px-8 py-4 bg-gray-100;
 }
 
 @keyframes fadeInUp {
