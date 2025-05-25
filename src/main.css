@@ -38,6 +38,9 @@
 	--site-global--font-size--large: clamp(1rem, calc(2vw + 1rem), 1.5rem);
 	--site-global--font-size--xlarge: clamp(1.2rem, calc(2vw + 1rem), 2rem);
 	--site-global--font-size--xxlarge: clamp(1.5rem, calc(2vw + 1rem), 4rem);
+
+  --site-global--font-size--button: clamp(0.9rem, calc(2vw + 1rem), 1rem);
+
   --site-global--font-size--h1: clamp(1.4rem, calc(2vw + 1rem), 1.75rem);
 	--site-global--font-size--h2: clamp(0.9rem, calc(2vw + 1rem), 1.5rem);
 	--site-global--font-size--h3: clamp(0.9rem, calc(2vw + 1rem), 1.25rem);
@@ -117,7 +120,7 @@ h3 {
   top: 1rem;
   right: 1rem;
   padding: 0.5rem 1.5rem;
-  font-size: var(--site-global--font-size--base);
+  font-size: var(--site-global--font-size--button);
   font-weight: 700;
   text-transform: uppercase;
   border: 0.25rem solid var(--color-pf-orange);
@@ -211,30 +214,6 @@ h3 {
 
 .blog__byline {
   @apply text-base font-medium text-stone-600 italic;
-}
-
-@media (prefers-color-scheme: dark) {
-  .blog__title,
-  .blog__header__top,
-  #BlogHeaderDate {
-    @apply text-stone-100;
-  }
-
-  .blog__header {
-    @apply text-stone-100;
-  
-    &::before {
-      content:"";
-      background-color: var(--color-stone-600);
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 55vh;
-      width: 100%;
-      z-index: -1;
-    }
-  }
 }
 
 
@@ -388,5 +367,47 @@ h3 {
   .blog__logo__link:hover {
     animation: rubberBand 800ms ease-in-out;
 		animation-fill-mode: forwards;
+  }
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: hsl(36, 6%, 32%);
+  }
+  p,
+  .blog__intro,
+  .blog__title,
+  .blog__header__top,
+  #BlogHeaderDate {
+    @apply text-stone-100;
+  }
+
+  .blog__separator { 
+    .dot {
+      background-color: white;
+    }
+  }
+
+  .blog__header {
+    @apply text-stone-100;
+  
+    &::before {
+      content:"";
+      background: url(../assets/feathers.svg), linear-gradient(-180deg,rgba(41, 37, 36, 1) 0%, rgba(87, 83, 77, 1) 100%);
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 55vh;
+      width: 100%;
+      z-index: -1;
+    }
+  }
+
+  .blog__site__footer {
+    @apply bg-stone-700;
   }
 }
