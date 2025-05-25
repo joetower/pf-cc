@@ -573,7 +573,7 @@ h3 {
   body {
     background-color: hsl(36, 6%, 32%);
   }
-  p, .blog__intro, .blog__title, .blog__header__top, #BlogHeaderDate {
+  p, .blog__byline, .blog__intro, .blog__title, .blog__header__top, #BlogHeaderDate {
     color: var(--color-stone-100);
   }
   .blog__separator {

@@ -377,6 +377,7 @@ h3 {
     background-color: hsl(36, 6%, 32%);
   }
   p,
+  .blog__byline,
   .blog__intro,
   .blog__title,
   .blog__header__top,
