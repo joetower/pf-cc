@@ -10,6 +10,7 @@
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-stone-100: oklch(97% 0.001 106.424);
     --color-stone-600: oklch(44.4% 0.011 73.639);
     --spacing: 0.25rem;
     --text-sm: 0.875rem;
@@ -345,6 +346,7 @@ h3 {
   font-weight: 700;
   text-transform: uppercase;
   border: 0.25rem solid var(--color-pf-orange);
+  background-color: white;
   cursor: pointer;
   &[aria-expanded="true"] {
     background-color: black;
@@ -426,6 +428,25 @@ h3 {
   font-weight: var(--font-weight-medium);
   color: var(--color-stone-600);
   font-style: italic;
+}
+@media (prefers-color-scheme: dark) {
+  .blog__title, .blog__header__top, #BlogHeaderDate {
+    color: var(--color-stone-100);
+  }
+  .blog__header {
+    color: var(--color-stone-100);
+    &::before {
+      content: "";
+      background-color: var(--color-stone-600);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 55vh;
+      width: 100%;
+      z-index: -1;
+    }
+  }
 }
 .blog__full {
   margin-inline: auto;
