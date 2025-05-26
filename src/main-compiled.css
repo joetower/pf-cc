@@ -7,10 +7,11 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-stone-100: oklch(97% 0.001 106.424);
+    --color-stone-300: oklch(86.9% 0.005 56.366);
+    --color-stone-400: oklch(70.9% 0.01 56.259);
     --color-stone-600: oklch(44.4% 0.011 73.639);
     --color-stone-700: oklch(37.4% 0.01 67.558);
     --spacing: 0.25rem;
@@ -271,6 +272,18 @@ body {
   font-size: var(--site-global--font-size--base);
   font-weight: 400;
   line-height: 1.7;
+  @media (max-width: 700px) {
+    &:not(.footer-in-view)::after {
+      content: "";
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 7rem;
+      background: linear-gradient(-180deg,rgba(255, 255, 255, 0) 33%, rgba(255, 140, 0, 1) 100%);
+      z-index: 1;
+    }
+  }
 }
 a {
   color: var(--color-pf-orange);
@@ -431,6 +444,11 @@ h3 {
   color: var(--color-stone-600);
   font-style: italic;
 }
+.blog__main {
+  @media (min-width: 1000px) {
+    padding-block-end: 3rem;
+  }
+}
 .blog__full {
   margin-inline: auto;
   margin-block: calc(var(--spacing) * 8);
@@ -483,10 +501,22 @@ h3 {
 }
 .blog__footer__content {
   margin-inline: auto;
+  display: flex;
   max-width: 660px;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--spacing) * 4);
+  svg {
+    fill: var(--color-stone-400);
+    width: 8rem;
+    height: auto;
+    @media (min-width: 1000px) {
+      margin-top: -5.5rem;
+    }
+  }
 }
 .blog__site__footer {
-  background-color: var(--color-gray-100);
+  background-color: var(--color-stone-100);
   padding-inline: calc(var(--spacing) * 8);
   padding-block: calc(var(--spacing) * 4);
 }
@@ -598,6 +628,11 @@ h3 {
   }
   .blog__site__footer {
     background-color: var(--color-stone-700);
+  }
+  .blog__footer__content {
+    svg {
+      fill: var(--color-stone-300);
+    }
   }
 }
 @property --tw-border-style {

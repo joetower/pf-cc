@@ -67,3 +67,24 @@ document.addEventListener('keydown', function(e) {
     tasksButton.focus();
   }
 });
+
+// intersection observer to observe when blog__site__footer is in view
+const footer = document.querySelector('.blog__site__footer');
+const body = document.body;
+const footerObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      console.log('Footer is in view');
+      body.classList.add('footer-in-view');
+    } else {
+      console.log('Footer is out of view');
+      body.classList.remove('footer-in-view');
+    }
+  });
+}, {
+  threshold: 1.0 // Trigger when 100% of the element is visible
+});
+
+if (footer) {
+  footerObserver.observe(footer);
+}
