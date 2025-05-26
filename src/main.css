@@ -123,7 +123,7 @@ h3 {
 }
 
 .blog__logo__link {
-  @apply min-[600px]:mx-auto max-w-[133px] block grow-0 shrink-1 basis-auto;
+  @apply min-[600px]:mx-auto max-[700px]:px-6 max-w-[130px] block grow-0 shrink-1 basis-auto;
 }
 
 .blog__challenge {
