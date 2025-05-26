@@ -249,16 +249,16 @@
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 :root {
-  --site-global--font-size--base: clamp(0.95rem, calc(2vw + 1rem), 1.2rem);
-  --site-global--font-size--intro: clamp(0.95rem, calc(2vw + 1rem), 1.35rem);
+  --site-global--font-size--base: clamp(0.85rem, calc(2vw + 0.85rem), 1.2rem);
+  --site-global--font-size--intro: clamp(0.95rem, calc(2vw + 0.95rem), 1.35rem);
   --site-global--font-size--large: clamp(1rem, calc(2vw + 1rem), 1.5rem);
   --site-global--font-size--xlarge: clamp(1.2rem, calc(2vw + 1rem), 2rem);
   --site-global--font-size--xxlarge: clamp(1.5rem, calc(2vw + 1rem), 4rem);
   --site-global--font-size--button: clamp(0.9rem, calc(2vw + 1rem), 1rem);
   --site-global--font-size--h1: clamp(1.4rem, calc(2vw + 1rem), 1.75rem);
-  --site-global--font-size--h2: clamp(0.9rem, calc(2vw + 1rem), 1.5rem);
-  --site-global--font-size--h3: clamp(0.9rem, calc(2vw + 1rem), 1.25rem);
-  --site-global--font-size--h4: clamp(0.9rem, calc(2vw + 1rem), 1.25rem);
+  --site-global--font-size--h2: clamp(0.85rem, calc(2vw + 0.8rem), 1.5rem);
+  --site-global--font-size--h3: clamp(0.8rem, calc(2vw + 0.75rem), 1.25rem);
+  --site-global--font-size--h4: clamp(0.8rem, calc(2vw + 0.75rem), 1.25rem);
 }
 body {
   border-style: var(--tw-border-style);
