@@ -74,10 +74,8 @@ const body = document.body;
 const footerObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      console.log('Footer is in view');
       body.classList.add('footer-in-view');
     } else {
-      console.log('Footer is out of view');
       body.classList.remove('footer-in-view');
     }
   });

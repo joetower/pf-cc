@@ -3,7 +3,9 @@
 
 /* add css variable in tailwind */
 @theme  {
-  --color-pf-orange: hsl(33, 100%, 50%);
+  --color-pf-orange-a11y: hsl(30, 100%, 36%); /* this passes a11y contrast checks */
+  --color-pf-orange-original: hsl(33, 100%, 50%); /* this is the original orange color */
+  --color-pf-orange: var(--color-pf-orange-original);
 }
 
 /*
@@ -80,6 +82,7 @@ a {
 
 a:hover {
   color: #0056b3;
+  text-decoration: underline;
 } 
 
 a:focus-visible {
@@ -247,7 +250,7 @@ h3 {
 }
 
 .blog__body a {
-  @apply underline decoration-2;
+  @apply underline decoration-2 hover:underline-offset-4;
 }
 
 .blog__category__header {
