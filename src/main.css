@@ -3,7 +3,6 @@
 
 /* add css variable in tailwind */
 @theme  {
-  --color-pf-orange-a11y: hsl(30, 100%, 36%); /* this passes a11y contrast checks */
   --color-pf-orange-original: hsl(33, 100%, 50%); /* this is the original orange color */
   --color-pf-orange: var(--color-pf-orange-original);
 }
@@ -46,7 +45,8 @@
   --site-global--font-size--h1: clamp(1.4rem, calc(2vw + 1rem), 1.75rem);
 	--site-global--font-size--h2: clamp(0.85rem, calc(2vw + 0.8rem), 1.5rem);
 	--site-global--font-size--h3: clamp(0.8rem, calc(2vw + 0.75rem), 1.25rem);
-  --site-global--font-size--h4: clamp(0.8rem, calc(2vw + 0.75rem), 1.25rem); 
+  --site-global--font-size--h4: clamp(0.8rem, calc(2vw + 0.75rem), 1.25rem);
+  --color-pf-orange-a11y: hsl(30, 100%, 36%); /* this passes a11y contrast checks */
 }
 
 
@@ -296,12 +296,17 @@ h3 {
     fill: var(--color-stone-400);
     width: 8rem;
     height: auto;
+  }
+
+  .blog__footer__button {
+    @apply bg-transparent block cursor-pointer;
 
     @media (min-width: 1000px) {
       margin-top: -5.5rem;
     }
   }
 }
+
 
 .blog__site__footer {
   @apply px-8 py-4 bg-stone-100;
@@ -377,9 +382,14 @@ h3 {
 
 
 @media (prefers-color-scheme: dark) {
+  :root {
+    --color-pf-orange-a11y: hsl(33, 100%, 72%); /* this passes a11y contrast checks */
+  }
+
   body {
     background-color: hsl(36, 6%, 32%);
   }
+  
   p,
   .blog__byline,
   .blog__intro,

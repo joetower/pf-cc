@@ -86,3 +86,29 @@ const footerObserver = new IntersectionObserver((entries) => {
 if (footer) {
   footerObserver.observe(footer);
 }
+
+
+// footer button
+
+const a11yButton = document.querySelector('.blog__footer__button');
+const root = document.documentElement;
+
+// Check localStorage for saved a11y preference
+let isA11y = localStorage.getItem('a11yMode') === 'true';
+
+// Apply the saved preference on load
+if (isA11y) {
+  root.style.setProperty('--color-pf-orange', `var(--color-pf-orange-a11y)`);
+} else {
+  root.style.setProperty('--color-pf-orange', `var(--color-pf-orange-original)`);
+}
+
+a11yButton.addEventListener('click', function() {
+  isA11y = !isA11y;
+  if (isA11y) {
+    root.style.setProperty('--color-pf-orange', `var(--color-pf-orange-a11y)`);
+  } else {
+    root.style.setProperty('--color-pf-orange', `var(--color-pf-orange-original)`);
+  }
+  localStorage.setItem('a11yMode', isA11y);
+});

@@ -260,6 +260,7 @@
   --site-global--font-size--h2: clamp(0.85rem, calc(2vw + 0.8rem), 1.5rem);
   --site-global--font-size--h3: clamp(0.8rem, calc(2vw + 0.75rem), 1.25rem);
   --site-global--font-size--h4: clamp(0.8rem, calc(2vw + 0.75rem), 1.25rem);
+  --color-pf-orange-a11y: hsl(30, 100%, 36%);
 }
 body {
   border-style: var(--tw-border-style);
@@ -521,6 +522,11 @@ h3 {
     fill: var(--color-stone-400);
     width: 8rem;
     height: auto;
+  }
+  .blog__footer__button {
+    display: block;
+    cursor: pointer;
+    background-color: transparent;
     @media (min-width: 1000px) {
       margin-top: -5.5rem;
     }
@@ -587,6 +593,9 @@ h3 {
   }
 }
 @media (prefers-color-scheme: dark) {
+  :root {
+    --color-pf-orange-a11y: hsl(33, 100%, 72%);
+  }
   body {
     background-color: hsl(36, 6%, 32%);
   }
