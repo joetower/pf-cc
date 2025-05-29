@@ -1,5 +1,18 @@
 # pf-cc
-[View latest deploy](https://pf-cc.netlify.app/)
+
+## For the ease of review and testing, this repository is setup to deploy the `main` branch to a Netlify instance. 
+- [View latest deploy](https://pf-cc.netlify.app/)
+
+---
+
+## To test locally:
+- Checkout the branch
+- run `nvm use` or setup the [automatic script](https://github.com/nvm-sh/nvm?tab=readme-ov-file#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file) to change versions when an `nvmrc` file is detected in the current directory.
+- run `npm install`
+- run `npm run dev` and a browser window will open with the index.html file displayed
+- If you edit the `main.css` file, changes will get compiled to `src/main-compiled`
+
+---
 
 ## This project is a PF code challenge
 **The project features:**
