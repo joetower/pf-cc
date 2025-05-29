@@ -7,14 +7,14 @@
 
 ## To test locally:
 - Checkout the branch
-- run `nvm use` or setup the [automatic script](https://github.com/nvm-sh/nvm?tab=readme-ov-file#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file) to change versions when an `nvmrc` file is detected in the current directory.
+- run `nvm use` or setup the [automatic script](https://github.com/nvm-sh/nvm?tab=readme-ov-file#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file) to change versions when a `.nvmrc` file is detected in the current directory. If you don't have it setup, you can run `nvm use` to see if you have the correct version installed or `nvm install` to install the version listed in the `.nvmrc` file.  
 - run `npm install`
 - run `npm run dev` and a browser window will open with the index.html file displayed
 - If you edit the `main.css` file, changes will get compiled to `src/main-compiled`
 
 ---
 
-## This project is a PF code challenge
+## This project is a code challenge
 **The project features:**
 - Tailwindcss (both using utility classes and the `@apply` function) along with vanilla CSS
 - Lazy-loaded images, which animate in when they're in the user's viewport.
