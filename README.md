@@ -6,7 +6,7 @@
 ---
 
 ## To test locally:
-- Checkout the branch
+- Checkout the repository
 - run `nvm use` or setup the [automatic script](https://github.com/nvm-sh/nvm?tab=readme-ov-file#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file) to change versions when a `.nvmrc` file is detected in the current directory. If you don't have it setup, you can run `nvm use` to see if you have the correct version installed or `nvm install` to install the version listed in the `.nvmrc` file.  
 - run `npm install`
 - run `npm run dev` and a browser window will open with the index.html file displayed
