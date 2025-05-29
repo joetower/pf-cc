@@ -13,6 +13,7 @@
 - Typography is setup to use `css variables`. There are several variables setup which assign a `clamp` function to define a minimum, preferred, and maximum font-size. This makes the font-size adjust, within a set of guardrails, responsively. It also ensures the font-size is scalable for accessibility.
 - Dark mode OS support
 - Accessibility features:
+  - While replicating the post, I noticed some accessibility improvements that should be made, so I addressed many of them. 
   - The page HTML uses the `<article>` element around the post content for greater semantics. Using it (or assigning `role="article"`) allows search engines to understand that the post is a self-contained piece of content.
   - The post title is an `<h1>`, as a child of the `<article>` element.
   - All animation is disabled if a user has the `prefers-reduced-motion` computer OS setting enabled.
