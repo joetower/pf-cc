@@ -47,6 +47,9 @@
 	--site-global--font-size--h3: clamp(0.8rem, calc(2vw + 0.75rem), 1.25rem);
   --site-global--font-size--h4: clamp(0.8rem, calc(2vw + 0.75rem), 1.25rem);
   --color-pf-orange-a11y: hsl(30, 100%, 36%); /* this passes a11y contrast checks */
+
+  --site-global--link--color: var(--color-pf-orange);
+  --site-global--link--color-hover: #0056b3;
 }
 
 
@@ -75,18 +78,18 @@ body {
 
 /* Links */
 a {
-  color: var(--color-pf-orange);
+  color: var(--site-global--link--color);
   text-decoration: none;
   transition: color .3s ease;
 }
 
 a:hover {
-  color: #0056b3;
+  color: var(--site-global--link--color-hover);
   text-decoration: underline;
 } 
 
 a:focus-visible {
-  outline: 2px solid #0056b3;
+  outline: 2px solid var(--site-global--link--color-hover);
   outline-offset: 2px;
 }
 
@@ -384,6 +387,7 @@ h3 {
 @media (prefers-color-scheme: dark) {
   :root {
     --color-pf-orange-a11y: hsl(33, 100%, 72%); /* this passes a11y contrast checks */
+    --site-global--link--color-hover: #fff;
   }
 
   body {
